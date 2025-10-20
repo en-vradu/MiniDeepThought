@@ -1,0 +1,72 @@
+# Visual Studio specific
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio Code settings
+.vscode/
+
+# Rider settings
+.idea/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# ASP.NET temporary files
+App_Data/
+wwwroot/
+node_modules/
+bower_components/
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Entity Framework
+*.edmx.diagram
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+# User-specific files
+*.rsuser
+*.scc
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+
+# Backup & temp files
+*.bak
+*.tmp
+*.temp
+~$*
+*.orig
+*.log
+
+# Others
+TestResults/
+*.vspscc
+*.vssscc
