@@ -1,6 +1,6 @@
-﻿namespace MiniDeepThought.src.MiniDeepThought.Domain;
+﻿using MiniDeepThought.src.MiniDeepThought.Util;
 
-public enum JobStatus { Pending, Running, Completed, Canceled }
+namespace MiniDeepThought.src.MiniDeepThought.Domain;
 
 public class Job
 {
