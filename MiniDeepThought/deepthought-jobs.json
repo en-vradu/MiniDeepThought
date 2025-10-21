@@ -1,0 +1,17 @@
+[
+  {
+    "JobId": "891193b0-bd1f-4f70-b4ac-55f8edb8560e",
+    "QuestionText": "1234",
+    "AlgorithmKey": "SlowCount",
+    "Status": 2,
+    "Progress": 100,
+    "CreatedUtc": "2025-10-21T11:36:19.6610385Z",
+    "StartedUtc": "2025-10-21T11:36:19.7079676Z",
+    "CompletedUtc": "2025-10-21T11:36:26.1868505Z",
+    "Result": {
+      "Answer": "42",
+      "Summary": "Slow count.",
+      "DurationMs": 6454
+    }
+  }
+]

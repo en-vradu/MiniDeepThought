@@ -1,4 +1,4 @@
-﻿using MiniDeepThought.src.MiniDeepThought.Util;
+using MiniDeepThought.src.MiniDeepThought.Util;
 
 namespace MiniDeepThought.src.MiniDeepThought.Domain;
 
