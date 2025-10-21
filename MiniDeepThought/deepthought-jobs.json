@@ -13,5 +13,20 @@
       "Summary": "Slow count.",
       "DurationMs": 6454
     }
+  },
+  {
+    "JobId": "2e3aeac8-65ad-49a1-a896-507031e0ccc6",
+    "QuestionText": "Buna ziua cat e ceausl?",
+    "AlgorithmKey": "RandomGuess",
+    "Status": 2,
+    "Progress": 100,
+    "CreatedUtc": "2025-10-21T12:03:59.9301721Z",
+    "StartedUtc": "2025-10-21T12:04:00.0102487Z",
+    "CompletedUtc": "2025-10-21T12:04:01.0623793Z",
+    "Result": {
+      "Answer": "42",
+      "Summary": "Random guess from pool.",
+      "DurationMs": 1038
+    }
   }
 ]

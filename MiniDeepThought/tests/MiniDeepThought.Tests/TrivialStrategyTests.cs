@@ -1,10 +1,5 @@
 using MiniDeepThought.src.MiniDeepThought.Domain;
 using MiniDeepThought.src.MiniDeepThought.Strategies;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MiniDeepThought.Tests
 {
@@ -20,6 +15,7 @@ namespace MiniDeepThought.Tests
             using var cts = new CancellationTokenSource();
 
             var result = await strategy.ExecuteAsync(job, progress, cts.Token);
+            await Task.Delay(10);
 
             Assert.Equal("42", result.Answer);
             Assert.Equal("Trivial answer.", result.Summary);
