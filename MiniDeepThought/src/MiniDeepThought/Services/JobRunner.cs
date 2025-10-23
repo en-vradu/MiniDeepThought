@@ -45,7 +45,6 @@ public class JobRunner
         catch (OperationCanceledException)
         {
             job.Status = JobStatus.Canceled;
-            job.CompletedUtc = DateTime.UtcNow;
 
             await _store.AddOrUpdateAsync(job);
         }

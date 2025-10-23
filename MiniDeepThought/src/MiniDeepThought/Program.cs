@@ -15,7 +15,8 @@ namespace MiniDeepThought
         {
             Console.WriteLine("=== Mini Deep Thought ===");
 
-            bool exit = false;
+            var exit = false;
+
             while (!exit)
             {
                 Console.WriteLine();
@@ -25,6 +26,7 @@ namespace MiniDeepThought
                 Console.WriteLine("4) Cancel Running Job");
                 Console.WriteLine("5) Exit");
                 Console.Write("Select: ");
+
                 var choice = Console.ReadLine();
 
                 switch (choice)
@@ -54,15 +56,18 @@ namespace MiniDeepThought
         private static async Task SubmitQuestionAsync()
         {
             Console.Write("Enter your Ultimate Question (1–200 chars): ");
+
             var question = Console.ReadLine()?.Trim() ?? "";
 
             if (string.IsNullOrWhiteSpace(question) || question.Length > 200)
             {
                 Console.WriteLine("Invalid question. Try again.");
+
                 return;
             }
 
             Console.Write("Algorithm [Trivial|SlowCount|RandomGuess]: ");
+
             var algoKey = Console.ReadLine()?.Trim();
 
             IAnswerStrategies? strategy = algoKey switch
@@ -76,6 +81,7 @@ namespace MiniDeepThought
             if (strategy == null)
             {
                 Console.WriteLine("Unknown algorithm. Try again.");
+
                 return;
             }
 
@@ -104,13 +110,14 @@ namespace MiniDeepThought
                 if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.C)
                 {
                     _jobRunner.CancelCurrentJob();
+
                     Console.WriteLine("\nCancel requested...");
                 }
+
                 await Task.Delay(100);
             }
 
-            Console.WriteLine();
-            Console.WriteLine($"Job finished with status: {job.Status}");
+            Console.WriteLine($"\nJob finished with status: {job.Status}");
         }
 
         private static void ListJobs()
@@ -124,33 +131,39 @@ namespace MiniDeepThought
             }
 
             Console.WriteLine("JobId | Status | Algorithm | CreatedUtc | Progress");
+
             foreach (var job in jobs)
             {
-                Console.WriteLine($"{job.JobId} | {job.Status} | {job.AlgorithmKey} | {job.CreatedUtc:u} | {job.Progress}%");
+                Console.WriteLine($"{job.JobId} | {job.Status} | {job.AlgorithmKey} | {job.CreatedUtc} | {job.Progress}%");
             }
         }
 
         private static void ViewResult()
         {
             Console.Write("Enter JobId: ");
+
             var idText = Console.ReadLine();
 
             if (!Guid.TryParse(idText, out var jobId))
             {
                 Console.WriteLine("Invalid JobId.");
+
                 return;
             }
 
             var job = _jobStore.GetById(jobId);
+
             if (job == null)
             {
                 Console.WriteLine("Job not found.");
+
                 return;
             }
 
             if (job.Status != JobStatus.Completed || job.Result == null)
             {
                 Console.WriteLine("Job is not completed yet.");
+
                 return;
             }
 
@@ -168,10 +181,12 @@ namespace MiniDeepThought
             if (!_jobRunner.IsJobRunning)
             {
                 Console.WriteLine("No job is currently running.");
+
                 return;
             }
 
             _jobRunner.CancelCurrentJob();
+
             Console.WriteLine("Cancellation requested.");
         }
     }

@@ -11,6 +11,7 @@ public class JobStore
     public JobStore(string filePath = "deepthought-jobs.json")
     {
         _filePath = filePath;
+
         Load();
     }
 
@@ -20,13 +21,18 @@ public class JobStore
         {
             var json = File.ReadAllText(_filePath);
             var jobs = JsonSerializer.Deserialize<List<Job>>(json);
-            if (jobs != null) _jobs.AddRange(jobs);
+
+            if (jobs != null)
+            {
+                _jobs.AddRange(jobs);
+            }
         }
     }
 
     private void Save()
     {
         var json = JsonSerializer.Serialize(_jobs, new JsonSerializerOptions { WriteIndented = true });
+
         File.WriteAllText(_filePath, json);
     }
 
@@ -37,10 +43,19 @@ public class JobStore
     public Task AddOrUpdateAsync(Job job)
     {
         var index = _jobs.FindIndex(j => j.JobId == job.JobId);
-        if (index >= 0) _jobs[index] = job;
-        else _jobs.Add(job);
+
+        if (index >= 0)
+        {
+            _jobs[index] = job;
+        }
+
+        else
+        {
+            _jobs.Add(job);
+        }
 
         Save();
+
         return Task.CompletedTask;
     }
 }
